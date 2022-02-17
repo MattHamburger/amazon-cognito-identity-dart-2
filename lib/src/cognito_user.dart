@@ -73,6 +73,8 @@ class CognitoUser {
   String get keyPrefix =>
       'CognitoIdentityServiceProvider.${pool.getClientId()}.$username';
 
+  String? get session => (_session == null) ? null : _session;
+
   Future<CognitoUserSession?> _authenticateUserInternal(
       dataAuthenticate, AuthenticationHelper authenticationHelper) async {
     final String? challengeName = dataAuthenticate['ChallengeName'];
